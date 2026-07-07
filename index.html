@@ -412,19 +412,7 @@ Open My Heart 💌
 
 <!-- MUSIC -->
 
-<section class="music hidden">
 
-<h2>Happy Birthday Song 🎂🎵</h2>
-
-<button id="musicBtn">
-▶ Play Birthday Song
-</button>
-
-<audio id="bgMusic" loop>
-    <source src="https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav" type="audio/wav">
-</audio>
-
-</section>
 <!-- FINAL MESSAGE -->
 
 <section class="ending hidden">
@@ -436,7 +424,91 @@ Open My Heart 💌
 Happy Birthday My Chari.
 
 Watching you grow from the little girl in these memories into the beautiful person you are today fills my heart with happiness.
+<!-- MUSIC SECTION -->
 
+<section class="music hidden">
+
+<h2>Happy Birthday Song 🎂🎵</h2>
+
+<button id="musicBtn">
+▶ Play Music
+</button>
+
+<div id="youtubePlayer"></div>
+
+</section>
+
+
+<style>
+
+#youtubePlayer{
+    opacity:0;
+    position:absolute;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+</style>
+
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+
+let player;
+let playing = false;
+
+
+function onYouTubeIframeAPIReady(){
+
+    player = new YT.Player('youtubePlayer',{
+
+        height:'1',
+        width:'1',
+
+        videoId:'P3wSn5K9quo',
+
+        playerVars:{
+            autoplay:0,
+            controls:0,
+            loop:1,
+            playlist:'P3wSn5K9quo'
+        }
+
+    });
+
+}
+
+
+const musicBtn = document.getElementById("musicBtn");
+
+
+musicBtn.onclick = function(){
+
+    if(!playing){
+
+        player.playVideo();
+
+        musicBtn.innerHTML="⏸ Pause Music";
+
+        playing=true;
+
+    }
+
+    else{
+
+        player.pauseVideo();
+
+        musicBtn.innerHTML="▶ Play Music";
+
+        playing=false;
+
+    }
+
+};
+
+</script>
 I pray Allah blesses you with endless happiness, success, good health, and a lifetime full of smiles.
 
 Thank you for existing.

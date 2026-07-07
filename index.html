@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+overflow-x:hidden;
+color:white;
+}
+
+section{
+padding:80px 8%;
+text-align:center;
+}
+
+.hidden{
+display:none;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h2{
+font-size:35px;
+letter-spacing:3px;
+}
+
+.hero h1{
+font-family:'Great Vibes',cursive;
+font-size:80px;
+margin:20px 0;
+text-shadow:0 0 20px rgba(255,255,255,.5);
+}
+
+.hero p{
+font-size:22px;
+max-width:700px;
+line-height:1.8;
+}
+
+button{
+margin-top:35px;
+padding:16px 45px;
+font-size:18px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+background:white;
+color:#ff4d88;
+font-weight:bold;
+transition:.35s;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+button:hover{
+transform:translateY(-5px) scale(1.05);
+}
+
+/* GLASS CARDS */
+
+.letter,
+.gallery,
+.videos,
+.music,
+.ending{
+
+margin:40px auto;
+max-width:1200px;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(15px);
+
+border-radius:25px;
+
+padding:50px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.2);
+
+animation:fadeUp 1s;
+}
+
+.letter h2,
+.gallery h2,
+.videos h2,
+.music h2,
+.ending h2{
+font-family:'Great Vibes',cursive;
+font-size:50px;
+margin-bottom:30px;
+}
+
+/* TYPEWRITER */
+
+#typewriter{
+font-size:22px;
+line-height:2;
+white-space:pre-wrap;
+}
+
+/* GALLERY */
+
+.gallery-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:25px;
+
+margin-top:30px;
+
+}
+
+.gallery-grid img{
+
+width:100%;
+
+height:350px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+transition:.4s;
+
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+.gallery-grid img:hover{
+
+transform:scale(1.08) rotate(2deg);
+
+}
+
+/* VIDEOS */
+
+.video-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:25px;
+
+}
+
+video{
+
+width:100%;
+
+border-radius:20px;
+
+box-shadow:0 15px 30px rgba(0,0,0,.3);
+
+}
+
+/* MUSIC */
+
+.music button{
+
+background:#ff4d88;
+
+color:white;
+
+}
+
+/* FOOTER */
+
+footer{
+
+padding:30px;
+
+text-align:center;
+
+font-size:18px;
+
+}
+
+/* FLOATING HEARTS */
+
+.heart{
+
+position:fixed;
+
+bottom:-50px;
+
+color:#ff3366;
+
+font-size:25px;
+
+animation:floatHeart linear forwards;
+
+pointer-events:none;
+
+}
+
+@keyframes floatHeart{
+
+0%{
+
+transform:translateY(0) scale(.5);
+
+opacity:0;
+
+}
+
+15%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-110vh) scale(1.8);
+
+opacity:0;
+
+}
+
+}
+
+/* CONFETTI */
+
+.confetti{
+
+position:fixed;
+
+width:12px;
+
+height:12px;
+
+top:-20px;
+
+animation:fall linear forwards;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:translateY(120vh) rotate(720deg);
+
+}
+
+}
+
+/* FADE */
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:55px;
+
+}
+
+.hero h2{
+
+font-size:28px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+}
+
+.letter,
+.gallery,
+.videos,
+.music,
+.ending{
+
+padding:25px;
+
+}
+
+.gallery-grid img{
+
+height:260px;
+
+}
+
+video{
+
+height:auto;
+
+}
+
+button{
+
+width:100%;
+
+}
+
+}
+</style>
+
+<title>Happy Birthday My Chari ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="hearts"></div>
+<div id="confetti"></div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h2>Happy Birthday</h2>
+
+<h1>My Chari ❤️</h1>
+
+<p>
+To the most beautiful girl in my world,
+Aafia ❤️
+</p>
+
+<button id="enterBtn">
+Open My Heart 💌
+</button>
+
+</section>
+
+<!-- LOVE LETTER -->
+
+<section class="letter hidden" id="letter">
+
+<h2>💌 A Letter For You</h2>
+
+<p id="typewriter"></p>
+
+</section>
+
+<!-- PHOTO GALLERY -->
+
+<section class="gallery hidden">
+
+<h2>Our Beautiful Memories ❤️</h2>
+
+<div class="gallery-grid">
+
+<img src="images/photo1.jpg">
+<img src="images/photo2.jpg">
+<img src="images/photo3.jpg">
+<img src="images/photo4.jpg">
+<img src="images/photo5.jpg">
+<img src="images/photo6.jpg">
+
+</div>
+
+</section>
+
+<!-- VIDEO SECTION -->
+
+<section class="videos hidden">
+
+<h2>Special Moments 🎥</h2>
+
+<div class="video-grid">
+
+<video controls>
+<source src="videos/video1.mp4" type="video/mp4">
+</video>
+
+<video controls>
+<source src="videos/video2.mp4" type="video/mp4">
+</video>
+
+<video controls>
+<source src="videos/video3.mp4" type="video/mp4">
+</video>
+
+<video controls>
+<source src="videos/video4.mp4" type="video/mp4">
+</video>
+
+</div>
+
+</section>
+
+<!-- MUSIC -->
+
+<section class="music hidden">
+
+<h2>Our Song 🎵</h2>
+
+<button id="musicBtn">
+▶ Play Music
+</button>
+
+<audio id="bgMusic" loop>
+<source src="music/song.mp3" type="audio/mp3">
+</audio>
+
+</section>
+
+<!-- FINAL MESSAGE -->
+
+<section class="ending hidden">
+
+<h2>I Love You Forever ❤️</h2>
+
+<p>
+
+Happy Birthday My Chari.
+
+Watching you grow from the little girl in these memories into the beautiful person you are today fills my heart with happiness.
+
+I pray Allah blesses you with endless happiness, success, good health, and a lifetime full of smiles.
+
+Thank you for existing.
+
+You are my peace.
+
+You are my happiness.
+
+You are my forever.
+
+❤️
+
+Love Always,
+
+<b>Billas</b>
+
+</p>
+
+</section>
+
+<footer>
+
+Made with ❤️ by Billas for Aafia
+
+</footer>
+
+<script>
+// ===============================
+// Romantic Birthday Website
+// ===============================
+
+const enterBtn = document.getElementById("enterBtn");
+const musicBtn = document.getElementById("musicBtn");
+const music = document.getElementById("bgMusic");
+
+const sections = document.querySelectorAll(
+".letter,.gallery,.videos,.music,.ending"
+);
+
+const letter = `
+
+Happy Birthday, My Chari ❤️
+
+Every year, this day reminds me how lucky the world is to have someone as wonderful as you.
+
+From your adorable childhood memories to the beautiful person you've become today, every picture tells a story of kindness, innocence, and beauty.
+
+I pray that Allah fills your life with happiness, success, endless smiles, and countless blessings.
+
+Whenever you smile, my heart smiles too.
+
+Thank you for being you.
+
+No matter where life takes us, you'll always have a very special place in my heart.
+
+Happy Birthday once again, my beautiful Chari.
+
+Forever yours,
+
+❤️ Billas ❤️
+
+`;
+
+let i = 0;
+
+function typeWriter() {
+
+    if (i < letter.length) {
+
+        document.getElementById("typewriter").innerHTML += letter.charAt(i);
+
+        i++;
+
+        setTimeout(typeWriter, 35);
+
+    }
+
+}
+
+// Open website
+
+enterBtn.onclick = () => {
+
+    sections.forEach(section => {
+
+        section.classList.remove("hidden");
+
+    });
+
+    enterBtn.style.display = "none";
+
+    typeWriter();
+
+    createConfetti();
+
+};
+
+// ============================
+// Music Button
+// ============================
+
+let playing = false;
+
+musicBtn.onclick = () => {
+
+    if (!playing) {
+
+        music.play();
+
+        musicBtn.innerHTML = "⏸ Pause Music";
+
+        playing = true;
+
+    } else {
+
+        music.pause();
+
+        musicBtn.innerHTML = "▶ Play Music";
+
+        playing = false;
+
+    }
+
+};
+
+// ============================
+// Floating Hearts
+// ============================
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+
+    heart.style.animationDuration = Math.random() * 4 + 4 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 8000);
+
+}
+
+setInterval(createHeart, 300);
+
+// ============================
+// Confetti
+// ============================
+
+function createConfetti() {
+
+    const colors = [
+
+        "#ff4d88",
+
+        "#ffcc00",
+
+        "#ffffff",
+
+        "#ff66b2",
+
+        "#66ffff",
+
+        "#ff3333"
+
+    ];
+
+    for (let i = 0; i < 250; i++) {
+
+        const confetti = document.createElement("div");
+
+        confetti.className = "confetti";
+
+        confetti.style.left = Math.random() * 100 + "vw";
+
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+        confetti.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+
+            confetti.remove();
+
+        }, 7000);
+
+    }
+
+}
+
+// ============================
+// Gallery Animation
+// ============================
+
+const images = document.querySelectorAll(".gallery img");
+
+images.forEach(img => {
+
+    img.addEventListener("click", () => {
+
+        img.style.transform = "scale(1.15)";
+
+        setTimeout(() => {
+
+            img.style.transform = "";
+
+        }, 400);
+
+    });
+
+});
+
+// ============================
+// Scroll Animation
+// ============================
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.style.opacity = 1;
+
+            entry.target.style.transform = "translateY(0)";
+
+        }
+
+    });
+
+});
+
+document.querySelectorAll("section").forEach(section => {
+
+    section.style.opacity = 0;
+
+    section.style.transform = "translateY(50px)";
+
+    section.style.transition = ".8s";
+
+    observer.observe(section);
+
+});
+
+// Keep Hero Visible
+
+document.querySelector(".hero").style.opacity = 1;
+document.querySelector(".hero").style.transform = "translateY(0)";
+</script>
+
+</body>
+</html>
